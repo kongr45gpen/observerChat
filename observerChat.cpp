@@ -3,7 +3,6 @@
 
 #include "bzfsAPI.h"
 #include "plugin_utils.h"
-#include <iostream>
 
 class observerChat : public bz_Plugin
 {
@@ -37,7 +36,6 @@ void observerChat::Init ( const char* commandLine )
     }
   bz_setBZDBString(variableName, variableValue);
 
-  bz_debugMessage(0,variableValue);
   bz_debugMessage(4,"observerChat plugin loaded");
 
   Register(bz_eRawChatMessageEvent);
