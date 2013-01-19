@@ -1,7 +1,7 @@
 observerChat
 ============
 
-BZFlag plugin that poses regulations on observers' chat.
+BZFlag plugin that limits observers' participation on global chat.
 
 Usage
 -----

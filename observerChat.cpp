@@ -6,14 +6,14 @@
 
 class observerChat : public bz_Plugin
 {
-  virtual const char* Name (){return "SAMPLE PLUGIN";}
+  virtual const char* Name (){return "Observer Chat plugin";}
   virtual void Init ( const char* config) ;
 
   virtual void Event ( bz_EventData *eventData );
 
   const char* variableName;
   const char* defaultValue;
-  const char* permName ;
+  const char* permName;
 };
 
 BZ_PLUGIN(observerChat)
