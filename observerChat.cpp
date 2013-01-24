@@ -26,14 +26,13 @@ void observerChat::Init ( const char* commandLine )
 
   int mode = (int)atoi(commandLine);
   const char* variableValue = "game";
-    
+
   if (mode == 0 && commandLine != NULL && strlen(commandLine) != 0) variableValue = "off";
-  else if (mode == 1) variableValue = "game"; 
-  else if (mode == 2) variableValue = "alwaysOn"; 
-  else {
-    if(bz_BZDBItemExists(variableName))
-      variableValue = bz_getBZDBString(variableName).c_str();
-    }
+  else if (mode == 1) variableValue = "game";
+  else if (mode == 2) variableValue = "alwaysOn";
+  else if(bz_BZDBItemExists(variableName))
+    variableValue = bz_getBZDBString(variableName).c_str();
+  
   bz_setBZDBString(variableName, variableValue);
 
   bz_debugMessage(4,"observerChat plugin loaded");
@@ -49,19 +48,21 @@ void observerChat::Event ( bz_EventData *eventData )
     {
       bz_ChatEventData_V1 *data = (bz_ChatEventData_V1*)eventData;
       int from = data->from;
+      bool isObserver = bz_getPlayerTeam(from) == eObservers;
+      bool canSpawn = bz_hasPerm(from,bz_perm_spawn);
       const char* duringTheGame = "";
-      
-      if (bz_getPlayerTeam(from) != eObservers) return;
-      if (data->to != BZ_ALLUSERS) return;
+
+      if (!isObserver && canSpawn) return;
+      if (data->to != BZ_ALLUSERS && (isObserver || data->team == eNoTeam)) return;
       if (bz_hasPerm(from,permName) || bz_getAdmin(from)) return;
-      
+
       std::string variableValue = makelower(bz_getBZDBString(variableName).c_str());
       if (variableValue == "off" || variableValue == "disable" || variableValue == "disabled" || variableValue == "no") return;
       else if (!(variableValue == "on" || variableValue == "alwayson" || variableValue == "enable" || variableValue == "enabled" || variableValue == "yes")) {
         if (!bz_isCountDownActive()) return;
         duringTheGame = " during the game";
       }
-            
+
       bz_sendTextMessagef(BZ_SERVER,from,"You are not allowed to send global messages%s.",duringTheGame);
       bz_sendTextMessagef(BZ_SERVER,from,"Please use observer chat only.");
       data->message = "";
