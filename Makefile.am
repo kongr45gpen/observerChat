@@ -10,7 +10,7 @@ AM_CFLAGS = $(CONF_CFLAGS)
 AM_CXXFLAGS = $(CONF_CXXFLAGS)
 
 EXTRA_DIST = \
-	README.txt \
+	README.md \
 	observerChat.def \
 	observerChat.sln \
 	observerChat.vcxproj
