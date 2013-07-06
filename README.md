@@ -14,7 +14,7 @@ Possible values:
 * `1`: Observers aren't allowed to talk on global chat while a game is in progress **(default)**
 * `2`: Observers aren't allowed to talk on global chat at any time
 
-Admins or players who have the `OBSERVERCHAT` permission are allowed to override the plugin and talk wherever they want.
+Players who have the `OBSERVERCHAT` permission or admins are allowed to override the plugin and talk wherever they want.
 
 Even more usage
 ---------------
