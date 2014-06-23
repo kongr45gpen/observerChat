@@ -1,6 +1,3 @@
-// observerChat.cpp : Defines the entry point for the DLL application.
-//
-
 #include "bzfsAPI.h"
 #include "plugin_utils.h"
 
