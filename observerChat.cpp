@@ -27,7 +27,7 @@ void observerChat::Init ( const char* commandLine )
   if (mode == 0 && commandLine != NULL && strlen(commandLine) != 0) variableValue = "off";
   else if (mode == 1) variableValue = "game";
   else if (mode == 2) variableValue = "alwaysOn";
-  else if(bz_BZDBItemExists(variableName))
+  else if (bz_BZDBItemExists(variableName))
     variableValue = bz_getBZDBString(variableName).c_str();
   
   bz_setBZDBString(variableName, variableValue);
