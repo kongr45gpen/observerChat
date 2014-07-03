@@ -26,13 +26,12 @@ If you wish to change the mode while in-game, you can set the `_observerChat` va
 Installation by compilation on Linux
 ------------------------------------
 
-1. Run `./newplug.sh observerChat` on your plugins directory and then replace observerChat/observerChat.cpp with the one at https://raw.github.com/kongr45gpen/observerChat/master/observerChat.cpp
-2. On the base bzflag source folder, run:
+1. Run `git clone https://github.com/kongr45gpen/observerChat.git` on your plugins directory
+2. Run `./addToBuild.sh observerChat`
+3. On the base bzflag source folder, run:
 
-        ./autogen.sh
-        ./configure.sh --disable-client
         make
         sudo make install
 
-3. Add `-loadplugin observerChat` to your server configuration file.
+4. Add `-loadplugin observerChat` to your server configuration file.
 
