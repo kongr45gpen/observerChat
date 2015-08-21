@@ -55,7 +55,7 @@ void observerChat::Event ( bz_EventData *eventData )
 
       std::string variableValue = makelower(bz_getBZDBString(variableName).c_str());
       if (variableValue == "off" || variableValue == "disable" || variableValue == "disabled" || variableValue == "no") return;
-      else if (!(variableValue == "on" || variableValue == "alwayson" || variableValue == "enable" || variableValue == "enabled" || variableValue == "yes")) {
+      else if (!(variableValue == "on" || variableValue == "always" || variableValue == "alwayson" || variableValue == "enable" || variableValue == "enabled" || variableValue == "yes")) {
         if (!bz_isCountDownActive()) return;
         duringTheGame = " during the game";
       }
