@@ -27,11 +27,11 @@ Installation by compilation on Linux
 ------------------------------------
 
 1. Run `git clone https://github.com/kongr45gpen/observerChat.git` on your plugins directory
-2. Run `./addToBuild.sh observerChat`
-3. On the base bzflag source folder, run:
+2. On the root bzflag source folder, run:
 
+        ./configure --enable-custom-plugins=observerChat
         make
         sudo make install
 
-4. Add `-loadplugin observerChat` to your server configuration file.
+3. Add `-loadplugin observerChat` to your server configuration file.
 
